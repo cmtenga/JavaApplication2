@@ -18,7 +18,7 @@ public class Receipt {
     private String name;
     private LineItem[] lineItems = {};
     private double subTotal;
-    private double total;
+
     private Customer[] customerDb = {
         new Customer("John Brown", "C104"),
         new Customer("Cecilia Mtenga", "D451"),
@@ -29,11 +29,11 @@ public class Receipt {
         LineItem lineItem = new LineItem(productId, qty);
 
         // lineitem stored in array
-        setItems(lineItem);
+        addItems(lineItem);
     }
 
     //  append lineitem array for each scanned product
-    private void setItems(LineItem item) {
+    private void addItems(LineItem item) {
         LineItem[] temp = new LineItem[lineItems.length + 1];
         System.arraycopy(lineItems, 0, temp, 0, lineItems.length);
         temp[temp.length - 1] = item;
@@ -42,7 +42,7 @@ public class Receipt {
 
     public void startNewSale(String custId) {
         Customer cust = findCustomerById(custId);
-        System.out.println("Customer ID :" + cust.getCustomerID() + " \nName: " + cust.getName());
+        //System.out.println("Customer ID :" + cust.getCustomerID() + " \nName: " + cust.getName());
 
     }
 
@@ -111,15 +111,6 @@ public class Receipt {
         this.subTotal = subTotal;
     }
 
-    public double getTotal() {
-     
-        return total = subTotal++;
-    }
-
-    public void setTotal(double total) {
-        this.total = total;
-    }
-
     public LineItem getLineItem() {
         return lineItem;
     }
@@ -135,6 +126,8 @@ public class Receipt {
     }
 
     public void displayReceipt() {
+        double saletotal=0;
+        
         DecimalFormat dollar = new DecimalFormat("$ 0.00");
         System.out.println("\nReceipt");
         System.out.println("----------");
@@ -148,8 +141,10 @@ public class Receipt {
                     + item.getQty() + "        " + dollar.format(item.getDiscountAmount())
                     + "        " + dollar.format(item.getSubTotal()));
 
+            saletotal = saletotal + item.getSubTotal();
         }
-        System.out.println("Total cost  is " + dollar.format(subTotal++));
+        System.out.println();
+        System.out.println("Total cost  is " + dollar.format(saletotal));
         System.out.println();
         System.out.println("Thank you for shopping with us.");
 
