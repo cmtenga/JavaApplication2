@@ -11,7 +11,7 @@ package javaapplication2;
 public class Startup {
 
     /**
-     * @param args the command line arguments
+     * @param args the command line arguments XXXXX
      */
     public static void main(String[] args) {
 
