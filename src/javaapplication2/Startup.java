@@ -16,7 +16,7 @@ public class Startup {
         cr.addProduct("A101", 4);
         cr.addProduct("B101", 2);
         cr.addProduct("B110", 9);
-
+        cr.addProduct("B111", 4);
         cr.displayReceipt();
 
 

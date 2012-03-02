@@ -13,7 +13,8 @@ public class LineItem {
     private Product[] productDb = {
         new Product("A101", "Shoe", 29.95, new BackToSchoolDiscount()),
         new Product("B101", "Glove", 25.95, new NoDiscount()),
-        new Product("B110", "Belt", 9.25, new QuantityDiscount())
+        new Product("B110", "Belt", 9.25, new QuantityDiscount()),
+         new Product("B111", "Socks", 12.99, new FlatRateDiscount())    
     };
 
     public LineItem(String productId, double qty) {
