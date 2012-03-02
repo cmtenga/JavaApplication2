@@ -1,7 +1,3 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package javaapplication2;
 
 /**
@@ -10,8 +6,7 @@ package javaapplication2;
  */
 public class Product {
 
-
- private String id;
+    private String id;
     private String name;
     private double price;
     private double discountAmt = 0;
@@ -23,19 +18,19 @@ public class Product {
         this.price = price;
         this.discountStrategy = discountStrategy;
     }
-    
+
     public double getDiscount(double qty) {
         discountStrategy.setPrice(price);
         discountStrategy.setQty(qty);
-        
-       //  return discountStrategy.getDiscount(qty, price);
+
         return discountAmt = discountStrategy.getDiscount(qty, price);
     }
 
     // 
-    public double getDiscountAmt(){
+    public double getDiscountAmt() {
         return discountAmt;
     }
+
     public DiscountStrategy getDiscountStrategy() {
         return discountStrategy;
     }
@@ -67,11 +62,10 @@ public class Product {
     public void setPrice(double price) {
         this.price = price;
     }
-      public void setProductId(String productId) {
+
+    public void setProductId(String productId) {
         this.id = productId;
     }
-    
-    
 //   public static void main(String[] args) { 
 //       
 //     Product product = new Product("", "", 20, new QuantityDiscount());
@@ -79,5 +73,4 @@ public class Product {
 //    double amount = product.getDiscount(1);
 //    System.out.println("Discount amount is: " + amount); 
 //}
-
-    }
+}

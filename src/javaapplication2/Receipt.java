@@ -1,7 +1,3 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package javaapplication2;
 
 import java.text.DecimalFormat;
@@ -15,10 +11,7 @@ public class Receipt {
     private Customer customer;
     private String customerID;
     private LineItem lineItem;
-    private String name;
     private LineItem[] lineItems = {};
-    private double subTotal;
-
     private Customer[] customerDb = {
         new Customer("John Brown", "C104"),
         new Customer("Cecilia Mtenga", "D451"),
@@ -31,8 +24,8 @@ public class Receipt {
         // lineitem stored in array
         addItems(lineItem);
     }
-
     //  append lineitem array for each scanned product
+
     private void addItems(LineItem item) {
         LineItem[] temp = new LineItem[lineItems.length + 1];
         System.arraycopy(lineItems, 0, temp, 0, lineItems.length);
@@ -42,7 +35,7 @@ public class Receipt {
 
     public void startNewSale(String custId) {
         Customer cust = findCustomerById(custId);
-        //System.out.println("Customer ID :" + cust.getCustomerID() + " \nName: " + cust.getName());
+        System.out.println("Customer ID :" + cust.getCustomerID() + " \nName: " + cust.getName());
 
     }
 
@@ -107,10 +100,6 @@ public class Receipt {
         return lineItem.getSubTotal();
     }
 
-    public void setSubTotal(double subTotal) {
-        this.subTotal = subTotal;
-    }
-
     public LineItem getLineItem() {
         return lineItem;
     }
@@ -120,14 +109,14 @@ public class Receipt {
     }
 
     public void finalizeSale() {
-        
+
         displayReceipt();
 
     }
 
     public void displayReceipt() {
-        double saletotal=0;
-        
+        double saletotal = 0;
+        double totalDiscount = 0;
         DecimalFormat dollar = new DecimalFormat("$ 0.00");
         System.out.println("\nReceipt");
         System.out.println("----------");
@@ -142,7 +131,10 @@ public class Receipt {
                     + "        " + dollar.format(item.getSubTotal()));
 
             saletotal = saletotal + item.getSubTotal();
+            totalDiscount = totalDiscount + item.getDiscountAmount();
         }
+        System.out.println();
+        System.out.println("Total saving  is " + dollar.format(totalDiscount));
         System.out.println();
         System.out.println("Total cost  is " + dollar.format(saletotal));
         System.out.println();

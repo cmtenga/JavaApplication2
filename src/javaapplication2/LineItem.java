@@ -1,7 +1,3 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package javaapplication2;
 
 /**
@@ -14,13 +10,11 @@ public class LineItem {
     private String productId;
     private double qty;
     private double subTotal;
-   
     private Product[] productDb = {
         new Product("A101", "Shoe", 29.95, new BackToSchoolDiscount()),
         new Product("B101", "Glove", 25.95, new NoDiscount()),
         new Product("B110", "Belt", 9.25, new QuantityDiscount())
     };
-    private double discountAmount;
 
     public LineItem(String productId, double qty) {
         this.productId = productId;
@@ -46,7 +40,7 @@ public class LineItem {
     }
 
     private Product findProductById(String id) {
-       Product product = null; 
+        Product product = null;
         for (Product p : productDb) {
             if (id.equals(p.getId())) {
                 product = p;
@@ -77,8 +71,8 @@ public class LineItem {
     }
 
     public double getSubTotal() {
-     
-        return subTotal = (product.getPrice()*qty) - product.getDiscountAmt();
+
+        return subTotal = (product.getPrice() * qty) - product.getDiscountAmt();
     }
 
     Product getLineItemData(String productId, double qty) {
@@ -90,21 +84,4 @@ public class LineItem {
     public void setProductId(String productId) {
         this.productId = productId;
     }
-//    private double getDiscount() {
-//        
-//        return product.getDiscount(qty);
-//    }
-//    
-//    //Startup class for testing     
-//   public static void main(String[] args) { 
-//      
-//     LineItem product = new LineItem("C101", 4);
-//    
-//    String name = product.getName();
-//    double qty = product.getQty();
-//        double amount = product.getDiscount();
-//    System.out.println("Item Description : " + name);
-//    System.out.println("Quantity purchased : " + qty);
-//    System.out.println("Discount amount is: " + amount); 
-//}
 }

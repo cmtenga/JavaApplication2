@@ -1,7 +1,4 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package javaapplication2;
 
 /**
@@ -9,7 +6,7 @@ package javaapplication2;
  * @author Owner
  */
 public class CashRegister {
-//private Receipt receipt;
+
 
     Receipt receipt = new Receipt();
 

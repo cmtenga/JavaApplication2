@@ -1,7 +1,3 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package javaapplication2;
 
 /**
@@ -20,7 +16,7 @@ public class Startup {
         cr.addProduct("A101", 4);
         cr.addProduct("B101", 2);
         cr.addProduct("B110", 9);
-        
+
         cr.displayReceipt();
 
 
