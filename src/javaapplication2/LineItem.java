@@ -10,6 +10,7 @@ public class LineItem {
     private String productId;
     private double qty;
     private double subTotal;
+    
     private Product[] productDb = {
         new Product("A101", "Shoe", 29.95, new BackToSchoolDiscount()),
         new Product("B101", "Glove", 25.95, new NoDiscount()),
@@ -52,7 +53,8 @@ public class LineItem {
     }
 
     public double getDiscountAmount() {
-        return product.getDiscount(qty);
+        return product.getDiscountAmt(qty);
+        
     }
 
     public Product getProduct() {
@@ -73,7 +75,7 @@ public class LineItem {
 
     public double getSubTotal() {
 
-        return subTotal = (product.getPrice() * qty) - product.getDiscountAmt();
+        return subTotal = (product.getPrice() * qty) - product.getDiscountAmt(qty);
     }
 
     Product getLineItemData(String productId, double qty) {

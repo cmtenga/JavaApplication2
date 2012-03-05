@@ -6,7 +6,7 @@ package javaapplication2;
  */
 public class QuantityDiscount implements DiscountStrategy {
 
-    private double percent = 0.40;
+    private double percent = 0.30;
     private double price;
     private double qty;
 

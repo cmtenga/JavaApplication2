@@ -9,7 +9,7 @@ public class Product {
     private String id;
     private String name;
     private double price;
-    private double discountAmt = 0;
+    //private double qty;
     private DiscountStrategy discountStrategy;
 
     public Product(String id, String name, double price, DiscountStrategy discountStrategy) {
@@ -19,17 +19,10 @@ public class Product {
         this.discountStrategy = discountStrategy;
     }
 
-    public double getDiscount(double qty) {
-        discountStrategy.setPrice(price);
-        discountStrategy.setQty(qty);
 
-        return discountAmt = discountStrategy.getDiscount(qty, price);
-    }
-
-    // 
-    public double getDiscountAmt() {
-        return discountAmt;
-    }
+     public double getDiscountAmt(double qty) {
+        return discountStrategy.getDiscount(qty, price);
+}
 
     public DiscountStrategy getDiscountStrategy() {
         return discountStrategy;
@@ -73,4 +66,6 @@ public class Product {
 //    double amount = product.getDiscount(1);
 //    System.out.println("Discount amount is: " + amount); 
 //}
+
+    
 }
